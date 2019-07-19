@@ -1,35 +1,21 @@
 <template>
   
-  <div id="app">请输入数字：
+  <div id="app">
+    请输入数字：
   <!--
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  
-      <form> 
-        <input v-model="counter" type="text" id="amount"> <br>
-      </form>
-
-    <div >
       <p> {{count}}</p>
       <button v-on:click ="add">点我+</button>
       <button v-on:click ="decrease">点我-</button> 
-      
-        <!-- <div v-for="counter in counters">
-          {{todo.counter}}
-        </div>-->
-      
-
-
-    </div>
+  
   </div>
-</template> 
+</template>
 
 <script>
 // import { METHODS } from 'http';
 // import func from '../vue-temp/vue-editor-bridge';
 //import HelloWorld from './components/HelloWorld.vue'
-import CounterGroup from './components/CounterGroup.vue';
-import HelloWorld from './components/CounterSum.vue';
 
 /*
 export default {
@@ -44,14 +30,8 @@ export default {
   name: 'app',
   data: function(){
       return {
-        count: 0,
-        counter: 1
+        count: 0
       } 
-  },
- 
-  components: {
-    CounterGroup,
-    CourterSum
   },
 
   methods: {
@@ -62,7 +42,6 @@ export default {
       this.count--;
     }
   }
-  
 };
 
 </script>
