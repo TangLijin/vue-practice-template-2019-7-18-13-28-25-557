@@ -5,7 +5,7 @@
   <!--
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-      <p> {{count}}</p>
+      <span> {{count}}</span>
       <button v-on:click ="add">点我+</button>
       <button v-on:click ="decrease">点我-</button> 
   
@@ -27,7 +27,7 @@ export default {
 
 
 export default {
-  name: 'app',
+  name: 'CounterGroup',
   data: function(){
       return {
         count: 0

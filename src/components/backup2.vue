@@ -9,18 +9,19 @@
     <input v-model.number="counter_input" type="text" id="amount" > <br>
       <!-- </form> -->
 
-    <div v-for="n in counter_input" v-bind:key="n" >
+    <div v-for="n in counter_input" v-bind:key="n" v-pre:>
 
-      <p> {{count}}</p>
-      <button v-on:click ="add">点我+</button>
-      <button v-on:click ="decrease">点我-</button> 
+      <p> {{count[n]}}</p>
+      <button v-on:click ="add(n)">点我+</button>
+      <button v-on:click ="decrease(n)">点我-</button> 
       
     </div>
 
-    <div><br>
+    <!-- <div><br>
     总数：<span> {{sum}}</span>
+
     </div>
-    
+     -->
   </div>
 </template> 
 
@@ -54,24 +55,24 @@ export default {
   data: function(){
       return {
         counter_input:1,
-        count:0,
-        sum:0
+        count:2
+        
       } 
   },
  
-  
+  // components: {
+  //   CounterGroup,
+  //   CourterSum
+  // },
 
   methods: {
-    add:function() {
-      this.count++;
-      this.sum++;
+    add:function(index) {
+      this.count[index]++;
     },
-    decrease:function(){
-      this.count--;
-      this.sum--;
+    decrease:function(index){
+      this.count[index]--;
     },
     get_sum:function(){
-      sum +=
 
     }
   }
