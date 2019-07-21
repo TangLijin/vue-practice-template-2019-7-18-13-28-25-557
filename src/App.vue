@@ -1,20 +1,21 @@
 <template>
   
-  <div id="app">请输入数字：
-  <!--
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <div id="app">
+    
+    请输入数字：
+
   
-      <!-- <form>  -->
+      <!-- <form>   -->
     <input v-model.number="counter_input" type="text" id="amount" > <br>
       <!-- </form> -->
 
-    <div v-for="n in counter_input" v-bind:key="n" >
+    <!-- <div v-for="n in counter_input" v-bind:key="n" > -->
+    <div v-for = "(item,index) in parseInt(counter_input)" v-bind:key="index">
 
-      <p> {{count}}</p>
+      <!-- <p> {{count}}</p>
       <button v-on:click ="add">点我+</button>
-      <button v-on:click ="decrease">点我-</button> 
-      
+      <button v-on:click ="decrease">点我-</button>  -->
+      <counter-group v-bind:index="index" v-on:add="get_sum" v-on:decrease="get_sum"></counter-group>
     </div>
 
     <div><br>
@@ -26,10 +27,8 @@
 
 <script>
 // import { METHODS } from 'http';
-// import func from '../vue-temp/vue-editor-bridge';
-//import HelloWorld from './components/HelloWorld.vue'
-//import CounterGroup from './components/CounterGroup.vue';
-//import HelloWorld from './components/CounterSum.vue';
+import CounterGroup from './components/CounterGroup.vue';
+
 
 /*
 export default {
@@ -54,25 +53,20 @@ export default {
   data: function(){
       return {
         counter_input:1,
-        count:0,
+        count_array:[],
         sum:0
       } 
   },
- 
+ components: {
+    CounterGroup
+  },
   
 
   methods: {
-    add:function() {
-      this.count++;
-      this.sum++;
-    },
-    decrease:function(){
-      this.count--;
-      this.sum--;
-    },
-    get_sum:function(){
-      sum +=
 
+    get_sum:function(count,index){
+      this.count_array[index] = count;
+      this.sum = this.count_array.reduce((a,b) => a+b);
     }
   }
   
